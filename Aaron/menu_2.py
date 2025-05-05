@@ -3,9 +3,9 @@ import base64
 
 
 st.set_page_config(layout="wide")
-create_page = st.Page("streamlit_Aaron.py", title="Aaron")
-create_page2 = st.Page("streamlit.py", title="Ciara")
-create_page3 = st.Page("action_2_javi.py", title="Javi")
+# create_page = st.Page("streamlit_Aaron.py", title="Aaron")
+# create_page2 = st.Page("streamlit.py", title="Ciara")
+# create_page3 = st.Page("action_2_javi.py", title="Javi")
 
 
 #poner fondo
@@ -80,6 +80,7 @@ st.markdown(
 
 pages = {
     "Menu": [
+        st.Page("inicio.py", title="Inicio", icon="🔥"),
         st.Page("streamlit_Aaron.py", title="Aaron", icon="🔥"),
         st.Page("streamlit.py", title="Ciara",icon="🚨"),
         st.Page("action_2_javi.py", title="Javi",icon="🚨"),

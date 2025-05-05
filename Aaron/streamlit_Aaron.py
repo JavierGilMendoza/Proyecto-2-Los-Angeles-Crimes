@@ -239,6 +239,18 @@ st.altair_chart(chart, use_container_width=True)
 # st.pyplot(fig)
 
 
-
+st.data_editor(
+    df_study_severity,
+    column_config={
+        "count": st.column_config.ProgressColumn(
+            "Count",
+            help="The count of the crime",
+            format="%f",
+            min_value=0,
+            max_value=601847,
+        ),
+    },
+    hide_index=True,
+)
 
 
