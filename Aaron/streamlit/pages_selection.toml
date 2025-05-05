@@ -1,0 +1,10 @@
+[[pages]]
+path = "streamlit_Aaron.py"
+name = "st-pages"
+icon = "📄"
+
+[[pages]]
+path = "streamlit_Aaron 2.py"
+name = "Example Two"
+
+
