@@ -240,7 +240,7 @@ fig_loc_sev.update_yaxes(tickfont=dict(color='white'))
 # Mostrar heatmap
 st.plotly_chart(fig_heatmap, use_container_width=True)
 
-st.header("Gravity by weapon and location", divider ="orange")
+st.header("Severity by weapon and location", divider ="orange")
 
 # Mostrar gráficas apiladas
 col3, col4 = st.columns(2)
