@@ -23,7 +23,7 @@ descent_map = {
     'd': 'cambodian',
     'f': 'filipino',
     'g': 'guamanian',
-    'h': 'hispanic/latin/mexican',
+    'h': 'latin',
     'i': 'american indian/alaskan native',
     'j': 'japanese',
     'k': 'korean',
@@ -150,6 +150,7 @@ with container_2.col1:
 
 with container_2.col2:
     df_study_severity = df_study.groupby('descent_victim_map').size().reset_index(name='count')
+    df_study_severity = df_study_severity.loc[df_study_severity['descent_victim_map'] != 'unknown']
     st.subheader("Count of descent victim")
 
     chart2 = alt.Chart(df_study_severity).mark_bar().encode(
@@ -174,7 +175,7 @@ df_filtro_descent = df_study[df_study['descent_victim_map'].isin(top_4_descent)]
 top_5_crime_ucr = df_filtro_descent['crime_ucr'].value_counts().nlargest(5).index
 df_filtro_crime = df_filtro_descent[df_filtro_descent['crime_ucr'].isin(top_5_crime_ucr)]
 count_df = df_filtro_crime.groupby(['crime_ucr', 'descent_victim_map']).size().reset_index(name='count')
-
+count_df = count_df.loc[count_df['descent_victim_map']!= 'unknown']
 # plt.figure(figsize=(12, 6))
 # sns.barplot(data=count_df, x='crime_ucr', y='conteo', hue='descent_victim_map')
 # plt.title('Conteo de cada crimen por descent_victim_map')
