@@ -9,7 +9,7 @@ from io import BytesIO
 
 st.title("Temporal patterns")
 
-
+left, center, right = st.columns([0.35, 1, 0.35])
 
 # Título
 st.header("Top 10 most common crimes", divider ="orange")
