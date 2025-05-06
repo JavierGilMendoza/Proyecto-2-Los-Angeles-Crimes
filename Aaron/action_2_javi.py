@@ -216,9 +216,10 @@ if 'dias_diferencia' not in df.columns:
     df['dias_diferencia'] = (df['date_report'] - df['date_ocurrance']).dt.days
 
 # Unificar categorías "unknown" y "other crimes"
-df['crime_ucr'] = df['crime_ucr'].replace(
-    {'unknown': 'Other/Unknown', 'other crimes': 'Other Crimes'}
-)
+df['crime_ucr'] = df['crime_ucr'].replace({
+    'unknown': 'Other/Unknown',
+    'other crimes': 'Other Crimes'
+})
 
 # Calcular el retraso promedio
 retraso_por_categoria = df.groupby('crime_ucr')['dias_diferencia'].mean().dropna()
@@ -232,35 +233,41 @@ etiquetas_amigables = {
     'vehicle theft': 'Vehicle Theft',
     'burglary': 'Burglary',
     'Other/Unknown': 'Other / Unknown',
-    'robbery': 'Robbery'
-    # Añade más si fuera necesario
+    'robbery': 'Robbery',
+    'financial crimes': 'Financial Crimes'
 }
 
 # Aplicar los nuevos nombres si existen
-labels = [etiquetas_amigables.get(cat, cat.title()) for cat in top_categorias_retraso.index]
+labels = [etiquetas_amigables.get(cat.lower(), cat.title()) for cat in top_categorias_retraso.index]
 
 # Crear el gráfico de tarta
 fig, ax = plt.subplots(figsize=(8, 8))
 
-# Crear el gráfico y capturar los textos
+# Obtener colores
+colores = plt.colormaps['Set3'].colors[:5]
+
+# Crear gráfico y capturar textos
 wedges, texts, autotexts = ax.pie(
     top_categorias_retraso.values,
     labels=labels,
     autopct='%1.1f%%',
     startangle=140,
-    colors=plt.colormaps['Set3'].colors[:5]
+    colors=colores
 )
 
-# Hacer blancas las etiquetas y porcentajes
-for text in texts:
-    text.set_color('white')
-for autotext in autotexts:
-    autotext.set_color('white')
+# Establecer colores de etiquetas
+for i, (text, autotext, label) in enumerate(zip(texts, autotexts, labels)):
+    text.set_color('white')  # Nombre de categoría
+    if label == 'Financial Crime':
+        autotext.set_color('black')  # Porcentaje en negro
+    else:
+        autotext.set_color('white')
 
-ax.axis('equal')  # Para que sea un círculo
+# Ajustes finales
+ax.axis('equal')  # Para mantener forma de círculo
 plt.tight_layout()
 
-# Mostrar gráfico en Streamlit
+# Mostrar en Streamlit
 buf = BytesIO()
 fig.savefig(buf, format="png", dpi=100, transparent=True)
 buf.seek(0)
