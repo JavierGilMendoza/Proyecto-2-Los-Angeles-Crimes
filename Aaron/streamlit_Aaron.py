@@ -173,7 +173,7 @@ df_filtro_descent = df_study[df_study['descent_victim_map'].isin(top_4_descent)]
 
 top_5_crime_ucr = df_filtro_descent['crime_ucr'].value_counts().nlargest(5).index
 df_filtro_crime = df_filtro_descent[df_filtro_descent['crime_ucr'].isin(top_5_crime_ucr)]
-count_df = df_filtro_crime.groupby(['crime_ucr', 'descent_victim_map']).size().reset_index(name='conteo')
+count_df = df_filtro_crime.groupby(['crime_ucr', 'descent_victim_map']).size().reset_index(name='count')
 
 # plt.figure(figsize=(12, 6))
 # sns.barplot(data=count_df, x='crime_ucr', y='conteo', hue='descent_victim_map')
@@ -190,7 +190,7 @@ chart4 = alt.Chart(count_df).mark_bar().encode(
     xOffset='descent_victim_map:N',  # Agrupar barras por origen étnico
     y=alt.Y('count:Q', title='count'),
     color=alt.Color('descent_victim_map:N', title='Origen'),
-    tooltip=['crime_ucr:N', 'descent_victim_map:N', 'conteo:Q']
+    tooltip=['crime_ucr:N', 'descent_victim_map:N', 'count:Q']
 ).properties(
     height=400,
     background='rgba(0,0,0,0)'
@@ -205,7 +205,7 @@ st.altair_chart(chart4, use_container_width=True)
 
 
 plt.figure(figsize=(12, 6))
-sns.barplot(data=count_df, x='crime_ucr', y='conteo', hue='descent_victim_map')
+sns.barplot(data=count_df, x='crime_ucr', y='count', hue='descent_victim_map')
 plt.title('Crimen group count per descent victim')
 plt.tight_layout()
 plt.show()
