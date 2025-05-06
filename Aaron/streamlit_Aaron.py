@@ -90,6 +90,7 @@ st.header("Count of crime agrouping and descent victim", divider="orange")
 
 # tab1, tab2, tab3, tab4 = st.tabs(["Histograma crime_severity", "Histograma de sex_victim", "Histograma de crime_ucr", "Histograma de descent_victim_map"])
 
+
 # with tab1:
 #     # Use the Streamlit theme.
 #     # This is the default. So you can also omit the theme argument.
@@ -111,6 +112,7 @@ st.header("Count of crime agrouping and descent victim", divider="orange")
 
 
 # container_1 = st.container(border=True)
+
 
 # container_1.col1, container_1.col2 = st.columns(2)
 
@@ -236,20 +238,3 @@ st.altair_chart(chart, use_container_width=True)
 # sns.heatmap(heatmap_data, cmap='Blues', annot=True, fmt='d')
 
 # st.pyplot(fig)
-
-
-st.data_editor(
-    df_study_severity,
-    column_config={
-        "count": st.column_config.ProgressColumn(
-            "Count",
-            help="The count of the crime",
-            format="%f",
-            min_value=0,
-            max_value=601847,
-        ),
-    },
-    hide_index=True,
-)
-
-
