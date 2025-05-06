@@ -191,7 +191,7 @@ wedges, texts, autotexts = ax.pie(
     labels=labels,
     autopct='%1.1f%%',
     startangle=140,
-    colors=plt.colormaps['Set3'].colors[:5]
+    colors=colores
 )
 
 for i, (text, autotext, label) in enumerate(zip(texts, autotexts, labels)):
