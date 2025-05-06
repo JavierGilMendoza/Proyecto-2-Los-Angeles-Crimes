@@ -13,12 +13,20 @@ st.title("Mapa de Calor de Crímenes")
 # Cargar datos
 df = pd.read_csv('Data_Crime_Cleaning.csv')
 
-# Mostrar las primeras filas si quieres
+# # Mostrar las primeras filas si quieres
 # st.write("Primeras filas del dataset:")
 # st.dataframe(df.head(10))
 
 # Crear el mapa
-mapa = folium.Map(location=[df['latitude'].mean(), df['longitude'].mean()], zoom_start=11)
+mapa = folium.Map(
+    location=[34.05, -118.25],
+    zoom_start=11,
+    tiles='cartodbpositron',
+    scrollWheelZoom=False,
+    dragging=False,
+    zoom_control=False,
+)
+
 
 # Preparar datos para el HeatMap
 heat_data = df[['latitude', 'longitude']].dropna().values.tolist()
@@ -30,27 +38,8 @@ HeatMap(heat_data, radius=10).add_to(mapa)
 st.header("Mapa de calor", divider = "orange")
 
 
+st_folium(mapa, width=700, height=500)
 
-st.markdown("""
-    <style>
-        .main {
-            padding-top: 0rem;
-            padding-bottom: 0rem;
-        }
-        .block-container {
-            padding: 0 !important;
-        }
-        iframe {
-            height: 100vh !important;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-
-
-
-
-st_folium(mapa, use_container_width=True)
 
 #-----------------------------------------------------------------------------------------------
 
@@ -147,13 +136,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 st_data = st_folium(m, use_container_width=True)
 
-st.header("PRUEBA", divider ="orange")
-
-st.map(df_race, latitude="latitude", longitude="longitude", size="descent_victim")
-
 # -------------------------------------------------------------------------------------------------------------
-
-
 
 st.header("PRUEBA 2", divider ="orange")
 
@@ -169,7 +152,7 @@ st.pydeck_chart(
         layers=[
             pdk.Layer(
                 "HexagonLayer",
-                data=df_race.head(1000),
+                data=df_race.head(10000),
                 get_position="[longitude, latitude]",
                 radius=200,
                 elevation_scale=4,

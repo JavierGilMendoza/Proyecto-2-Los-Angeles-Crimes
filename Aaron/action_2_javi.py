@@ -191,13 +191,13 @@ wedges, texts, autotexts = ax.pie(
     labels=labels,
     autopct='%1.1f%%',
     startangle=140,
-    colors=colores
+    colors=['#66c2a5', '#fc8d62', '#ffd92f', '#8da0cb', '#e78ac3']
 )
 
 for i, (text, autotext, label) in enumerate(zip(texts, autotexts, labels)):
     text.set_color('white')  # Nombre de categoría
     if label == 'Financial Crime':
-        autotext.set_color('black')  # Porcentaje en negro
+        autotext.set_color('black') 
     else:
         autotext.set_color('white')
 
