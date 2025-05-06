@@ -17,30 +17,8 @@ df = pd.read_csv('Data_Crime_Cleaning.csv')
 # st.write("Primeras filas del dataset:")
 # st.dataframe(df.head(10))
 
-# Crear el mapa
-mapa = folium.Map(
-    location=[34.05, -118.25],
-    zoom_start=11,
-    tiles='cartodbpositron',
-    scrollWheelZoom=False,
-    dragging=False,
-    zoom_control=False,
-)
 
-
-# Preparar datos para el HeatMap
-heat_data = df[['latitude', 'longitude']].dropna().values.tolist()
-
-# Añadir capa de calor
-HeatMap(heat_data, radius=10).add_to(mapa)
-
-# Mostrar el mapa en Streamlit
-st.header("Mapa de calor", divider = "orange")
-
-
-st_folium(mapa, width=700, height=500)
-
-
+st.image('heatmap1.png')
 #-----------------------------------------------------------------------------------------------
 
 urlgeo = 'https://drive.google.com/file/d/18QOLtJBH00qtzGlF3muy18VvqojZp7Ul/view?usp=drive_link'
@@ -78,8 +56,6 @@ choropleth_df = gdf.merge(crime_counts, left_on='APREC', right_on='area_name_cle
 
 
 # ---------------------------------------------------------------------------------------
-
-
 
 
 # 1. Filtrar registros con raza válida
