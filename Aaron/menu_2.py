@@ -15,7 +15,7 @@ def obtener_base64_local(imagen):
         data = f.read()
     return base64.b64encode(data).decode()
 
-fondo_base64 = obtener_base64_local("fondo4.jpg")
+fondo_base64 = obtener_base64_local("fondopht.png")
 
 st.markdown(
     f"""

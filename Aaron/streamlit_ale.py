@@ -14,8 +14,8 @@ st.title("Mapa de Calor de Crímenes")
 df = pd.read_csv('Data_Crime_Cleaning.csv')
 
 # Mostrar las primeras filas si quieres
-st.write("Primeras filas del dataset:")
-st.dataframe(df.head(10))
+# st.write("Primeras filas del dataset:")
+# st.dataframe(df.head(10))
 
 # Crear el mapa
 mapa = folium.Map(location=[df['latitude'].mean(), df['longitude'].mean()], zoom_start=11)

@@ -59,7 +59,7 @@ df_study = df[features_study]
 # plt.tight_layout()  #Asi ajusto el espacio entre los subplots
 # plt.show()
 
-st.title("Estudio de crimenes")
+st.title("Crime study")
 st.divider()
 
 
@@ -184,15 +184,14 @@ df_study_severity = df_study.groupby('crime_ucr').size().reset_index(name='count
     
     # Ordenar por 'count' de mayor a menor
 chart4 = alt.Chart(count_df).mark_bar().encode(
-    x=alt.X('crime_ucr:N', title='', sort=alt.EncodingSortField(field="conteo", op="sum", order="descending")),
+    x=alt.X('crime_ucr:N', title='', sort=alt.EncodingSortField(field="count", op="sum", order="descending")),
     xOffset='descent_victim_map:N',  # Agrupar barras por origen étnico
-    y=alt.Y('conteo:Q', title='Conteo'),
-    color=alt.Color('descent_victim_map:N', title='Origen étnico'),
+    y=alt.Y('count:Q', title='count'),
+    color=alt.Color('descent_victim_map:N', title='Origen'),
     tooltip=['crime_ucr:N', 'descent_victim_map:N', 'conteo:Q']
 ).properties(
     height=400,
-    background='rgba(0,0,0,0)',
-    title='Conteo de cada crimen por descent_victim_map'
+    background='rgba(0,0,0,0)'
 ).configure_axis(
     labelColor='white',
     titleColor='white',
@@ -205,7 +204,7 @@ st.altair_chart(chart4, use_container_width=True)
 
 plt.figure(figsize=(12, 6))
 sns.barplot(data=count_df, x='crime_ucr', y='conteo', hue='descent_victim_map')
-plt.title('Conteo de cada crimen por descent_victim_map')
+plt.title('Crimen group count per descent victim')
 plt.tight_layout()
 plt.show()
 
@@ -215,8 +214,8 @@ st.divider()
 st.header("Boxplot of age victim by crime group", divider="orange")
 
 chart = alt.Chart(df_study).mark_boxplot(size=25, outliers=False).encode(
-    y=alt.Y('crime_ucr:N', title='Crimenes'),         
-    x=alt.X('age_victim:Q', title='Edad de la victima'),   
+    y=alt.Y('crime_ucr:N', title='Crime group'),         
+    x=alt.X('age_victim:Q', title='Age victim'),   
     color='crime_ucr:N'
 ).properties(width='container', height=600, background='rgba(0,0,0,0)').configure_axis(
     labelColor='white',
