@@ -123,25 +123,8 @@ st.image("2_CrimeTypebyAreaI.png")
 # -------------------------------------------------------------------------------------------------------------
 st.header("Heatmap I", divider ="orange")
 st.image('heatmap1.png')
-# -------------------------------------------------------------------------------------------------------------
 
-st.header("Heatmap II", divider ="orange")
-st.image("4_HeatmapII.png")
-
-# -------------------------------------------------------------------------------------------------------------
-
-st.header("Heatmap III", divider ="orange")
-st.image("5_HeatMapIII.png")
-
-# -------------------------------------------------------------------------------------------------------------
-st.header("HeatMap by Crime Stolen Cars", divider ="orange")
-st.image("6_HeatMapbyCrime_StolenCarsIIII.png")
-
-# -------------------------------------------------------------------------------------------------------------
-st.header("Modus Operandis by Crime Type Sexual.", divider ="orange")
-st.image("7_MO_by Crime Type_Sexual.png")
-
-# -------------------------------------------------------------------------------------------------------------
+# -----------------------------------------
 
 st.header("Count by Location", divider ="orange")
 
@@ -175,3 +158,23 @@ st.pydeck_chart(
         ],
     )
 )
+# -------------------------------------------------------------------------------------------------------------
+
+st.header("Heatmap II", divider ="orange")
+st.image("4_HeatmapII.png")
+
+# -------------------------------------------------------------------------------------------------------------
+
+st.header("Heatmap III", divider ="orange")
+st.image("5_HeatMapIII.png")
+
+# -------------------------------------------------------------------------------------------------------------
+st.header("HeatMap by Crime Stolen Cars", divider ="orange")
+st.image("6_HeatMapbyCrime_StolenCarsIIII.png")
+
+# -------------------------------------------------------------------------------------------------------------
+st.header("Modus Operandis by Crime Type Sexual.", divider ="orange")
+st.image("7_MO_by Crime Type_Sexual.png")
+
+# -------------------------------------------------------------------------------------------------------------
+
