@@ -63,7 +63,7 @@ st.title("Crime study")
 st.divider()
 
 
-st.header("Count of crime agrouping and descent victim", divider="orange")
+st.header("Count of crime agrouping and ascent victim", divider="orange")
 
 # chart_list = []
 # hist_list= ['crime_severity','sex_victim','crime_ucr','descent_victim_map']
@@ -168,7 +168,7 @@ with container_2.col2:
 
 #----------------------------------------------------------------------------------
 st.divider()
-st.header("Descent victim by crime group", divider="orange")
+st.header("Ascent victim by crime group", divider="orange")
 top_4_descent = df_study['descent_victim_map'].value_counts().nlargest(4).index
 df_filtro_descent = df_study[df_study['descent_victim_map'].isin(top_4_descent)]
 
@@ -207,7 +207,7 @@ st.altair_chart(chart4, use_container_width=True)
 
 plt.figure(figsize=(12, 6))
 sns.barplot(data=count_df, x='crime_ucr', y='count', hue='descent_victim_map')
-plt.title('Crimen group count per descent victim')
+plt.title('Crimen group count per ascent victim')
 plt.tight_layout()
 plt.show()
 

@@ -81,10 +81,10 @@ st.markdown(
 pages = {
     "Menu": [
         st.Page("inicio.py", title="Inicio", icon="🔥"),
-        st.Page("streamlit_Aaron.py", title="Aaron", icon="🔥"),
-        st.Page("streamlit.py", title="Ciara",icon="🚨"),
-        st.Page("action_2_javi.py", title="Javi",icon="🚨"),
-        st.Page("streamlit_ale.py", title="Ale",icon="🚨"),
+        st.Page("streamlit_Aaron.py", title="Crime Study", icon="🚨"),
+        st.Page("streamlit.py", title="Weapon Study",icon="🚨"),
+        st.Page("action_2_javi.py", title="Trend Study",icon="🚨"),
+        st.Page("streamlit_ale.py", title="Geographic Study",icon="🚨"),
     ],
 }
 
