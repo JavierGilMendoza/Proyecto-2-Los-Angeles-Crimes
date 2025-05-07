@@ -165,8 +165,8 @@ st.pydeck_chart(
 
 # -------------------------------------------------------------------------------------------------------------
 
-st.header("Heatmap III", divider ="orange")
-st.image("5_HeatMapIII.png")
+# st.header("Heatmap III", divider ="orange")
+# st.image("5_HeatMapIII.png")
 
 # -------------------------------------------------------------------------------------------------------------
 st.header("HeatMap by Crime Stolen Cars", divider ="orange")
